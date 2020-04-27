@@ -1,0 +1,75 @@
+.containerEvent {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.info {
+  width: 50%;
+  @include lg {
+    margin-left: 10px;
+    width: 100%;
+  }
+  @include xs {
+    width: fit-content;
+  }
+}
+
+.box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  @include lg {
+    flex-wrap: wrap;
+  }
+  @include xs {
+    justify-content: center;
+  }
+}
+
+.poster {
+  width: 50%;
+  & .event__card {
+    height: 350px;
+  }
+  @include xs {
+    width: fit-content;
+  }
+}
+
+.eventDate, .ticketsAvailable, .eventPrices {
+  color: #ffc800;
+  font-weight: bold;
+}
+
+.buyBtn {
+  background-color: rgba(1, 1, 1, 0);
+  color: #ffc800;
+  border-radius: 5px;
+  padding-top: 5px;;
+  width: 50%;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.priceRange {
+  margin-bottom: 15px;
+}
+
+.aboutEvent {
+  margin-bottom: 10px;
+}
+
+.eventDate {
+  margin-right: 10px;
+}
+.description__img img {
+  max-width: 30vw;
+  @include lg {
+    max-width: none;
+  }
+  @include xs {
+    width: 100%;
+  }
+}

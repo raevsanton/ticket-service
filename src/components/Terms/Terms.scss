@@ -1,0 +1,11 @@
+.main {
+  &__terms {
+    & p {
+      margin-bottom: 40px;
+    }
+  }
+  &__button {
+    display: flex;
+    justify-content: flex-end;
+  }
+}

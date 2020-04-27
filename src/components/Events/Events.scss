@@ -1,0 +1,63 @@
+.main__events {
+  &--wrapper {
+    position: relative;
+    margin-top: 20px;
+    @include xs {
+      transform: none;
+    }
+    @include sm {
+      padding-top: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    & h1 {
+      position: absolute;
+      transform: translate(-50%, 0%);
+      left: 50%;
+    }
+  }
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+    & a {
+      min-width: 260px;
+      height: 230px;
+      overflow: hidden;
+      cursor: pointer;
+      flex: 1 1 48%;
+      margin-bottom: 10px;
+      padding-right: 10px;
+    }
+  }
+  &_btn {
+    display: flex;
+    justify-content: center;
+    &--prev {
+      margin-right: 20px;
+      background-color: white;
+      border: solid $dark-gray 1px;
+      color: $dark-gray;
+    }
+  }
+}
+
+.option-enter{
+  opacity: 0;
+}
+
+.option-enter.option-enter-active{
+  opacity: 1;
+  transition: opacity 10s ease;
+}
+
+.option-exit{
+  opacity: 1;
+}
+
+.option-exit.option-exit-active{
+  opacity: 0;
+  transition: opacity 10s ease;
+}

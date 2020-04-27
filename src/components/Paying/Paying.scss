@@ -1,0 +1,33 @@
+.main {
+  &__pay {
+    &--wrp {
+      display: flex;
+      flex-wrap: wrap;
+      & button {
+        margin-top: 50px;
+      }
+    }
+    &--item {
+      display: flex;
+      align-items: flex-end;
+      padding-left: 5px;
+    }
+    & button {
+      height: 35px;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      margin-top: 30px;
+      @include xl {
+        position: relative;
+      }
+    }
+  }
+  &__paypal {
+    width: 300px;
+    margin-top: 20px;
+    @include md {
+      width: 100%;
+    }
+  }
+}

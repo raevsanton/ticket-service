@@ -1,0 +1,109 @@
+#menu {
+  display: none;
+  position: fixed;
+  height: 275px;
+  background-color: #696a6d;
+  width: 100%;
+  transition: all .1s ease;
+  z-index: 101;
+  & p, a {
+    color: #fff;
+    transition: all .4s ease;
+  }
+  & a:hover {
+    opacity: .4;
+    transition: all .4s ease;
+  }
+  & .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include md {
+      flex-wrap: wrap;
+    }
+  }
+  @include md {
+    height: 390px;
+  }
+  @include  xs {
+    height: 570px;
+  }
+  @include mb {
+    height: 100%;
+  }
+}
+.menu {
+  &__logo_wrapper {
+    @include md {
+      flex-basis: 100%;
+    }
+    & img {
+      width: 200px;
+    }
+  }
+  &__address {
+    margin-top: 20px;
+  }
+  &__icon {
+    margin: 20px 0;
+    transition: all .4s ease;
+    a:not(:nth-child(1)) {
+      margin-left: 20px;
+      &:hover {
+        opacity: .4;
+        transition: all .4s ease;
+      }
+    }
+  }
+  &__list {
+    text-transform: uppercase;
+    font-size: 18px;
+    & li {
+      margin-bottom: 10px;
+      font-family: DINPro-Regular,sans-serif;
+    }
+    @include md {
+      flex-basis: 25%;
+    }
+    @include sm {
+      margin-top: 20px;
+    }
+  }
+  &__close {
+    width: 32px;
+    height: 32px;
+    padding-bottom: 92px;
+    padding-left: 20px;
+    cursor: pointer;
+    transition: all .4s ease;
+    &:hover {
+      opacity: .7;
+      transition: all .4s ease;
+    }
+    &:before,
+    &:after {
+      position: absolute;
+      content: ' ';
+      height: 33px;
+      width: 2px;
+      background-color: #fff;
+    }
+    &:before {
+      transform: rotate(45deg);
+    }
+    &:after {
+      transform: rotate(-45deg);
+    }
+    @include md {
+      flex-basis: 10%;
+    }
+  }
+  &__on {
+    display: block;
+  }
+}
+.show {
+  display: block !important;
+  transition: all .4s ease;
+}
+

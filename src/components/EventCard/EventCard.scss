@@ -1,0 +1,58 @@
+.event{
+  &__card {
+    height: 230px;
+    @include md {
+      padding-right: 0px;
+      padding-left: 20px;
+    }
+    @include sm {
+      padding-left: 0px;
+    }
+  }
+  &__img {
+    position: relative;
+    height: 100%;
+    transition: all .4s ease;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-image: linear-gradient(rgba(255, 77, 40, 0), #000);
+      transition: all .4s ease;
+    }
+    &:hover:before {
+      opacity: .4;
+      transition: all .4s ease;
+    }
+    & h2 {
+      color: #ffc800;
+    }
+    & img {
+      width: 100%;
+    }
+  }
+  &__line {
+    background-color: #ffc800;
+    height: 6px;
+    margin: 2px 0px;
+  }
+  &__title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 12px;
+    & h4 {
+      color: #ffc800;
+    }
+  }
+  &__date {
+    padding: 12px;
+    position: absolute;
+    right: 0;
+    color: #fff;
+  }
+}

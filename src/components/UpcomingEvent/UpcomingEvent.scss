@@ -1,0 +1,86 @@
+.main {
+  &__item {
+    width: 100%;
+    margin-top: 20px;
+    cursor: pointer;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, .04);
+    img {
+      width:100%;
+    }
+  }
+  &__img {
+    overflow: hidden;
+    height: 120px;
+    position: relative;
+    @include sm {
+      height: 190px;
+    }
+    & h3 {
+      position: absolute;
+      color: $yellow;
+      bottom: 10px;
+      left: 10px;
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-image: linear-gradient(rgba(255, 77, 40, 0),#000000);
+      opacity: .6;
+      transition: all .4s ease;
+    }
+    &:hover:before {
+      opacity: .4;
+      transition: all .4s ease;
+    }
+  }
+  &__description {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+    & p {
+      font-size: 15px;
+      @include sm {
+        font-size: 20px;
+      }
+      @include xs {
+        font-size: 17px;
+      }
+    }
+  }
+  &__check {
+    text-transform: uppercase;
+    color: $white;
+    background-color: #ff1632;
+    padding: 6px 7px;
+    & p {
+      font-size: 12px;
+      @include sm {
+        font-size: 20px;
+      }
+      @include xs {
+        font-size: 17px;
+      }
+    }
+    &--green {
+      text-transform: uppercase;
+      color: #fff;
+      background-color: $green;
+      padding: 6px 7px;
+      font-size: 10px;
+      & p {
+        font-size: 12px;
+        @include sm {
+          font-size: 20px;
+        }
+        @include xs {
+          font-size: 17px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+.main {
+  &__text--blue {
+    color: $blue;
+    font-family: FuturaFuturis,sans-serif;
+    font-size: 20px;
+    margin: 40px 0;
+  }
+  &__return_main {
+    display: inline-block;
+    font-family: FuturaFuturis,sans-serif;
+    font-size: 20px;
+    margin-top: 20px;
+  }
+  &__download_ticket {
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    & svg {
+      margin-left: 20px;
+    }
+  }
+}

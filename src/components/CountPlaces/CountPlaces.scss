@@ -1,0 +1,42 @@
+.main {
+  &__location {
+    display: flex;
+    margin: 20px 0 10px;
+    width: 250px;
+    & p:not(:nth-child(1)) {
+      margin-left: 76px;
+      @include xl {
+        margin-left: 0;
+      }
+    }
+    @include xl {
+      justify-content: space-between;
+      width: auto;
+    }
+  }
+  &__place {
+    width: 162px;
+    @include xl {
+      width: 100%;
+    }
+  }
+  &__wrp {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__close {
+    cursor: pointer;
+  }
+  &__line {
+    width: 100%;
+    height: 1px;
+    background-color: #d3d3d3;
+    margin-top: 2px;
+  }
+  &__total {
+    width: 180px;
+    @include xl {
+      width: 100%;
+    }
+  }
+}

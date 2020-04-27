@@ -1,0 +1,228 @@
+.main {
+  &__hall_title {
+    & h3 {
+      text-transform: uppercase;
+      color: $white;
+      background-color: $blue;
+      text-align: center;
+      padding: 3px 0;
+      margin-top: 30px;
+      margin-left: 15%;
+      margin-right: 15%;
+    }
+  }
+  &__hall {
+    width: 100%;
+    & h2 {
+      text-align: center;
+      text-transform: uppercase;
+      color: $dark-blue;
+      margin-top: 20px;
+    }
+  }
+  &__sides {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    &--wrp {
+      text-align: right;
+      & h4 {
+        color: $blue;
+      }
+    }
+    & h3 {
+      color: $blue;
+    }
+  }
+  &__exit {
+    font-size: 10px;
+    color: $blue;
+    border: 1px solid #07ace8;
+    margin-bottom: 10px;
+    padding: 8px 5px;
+    text-align: center;
+  }
+}
+
+.hall-place {
+  border-top: 1px solid #07ace8;
+  border-bottom: 1px solid #07ace8;
+  border-right: 1px solid #07ace8;
+  color: #07ace8;
+  padding-left: 4px;
+  padding-right: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  &:first-child {
+    border-left: 1px solid $blue;
+  }
+  &:hover {
+    background: $blue;
+    color: $white;
+  }
+  &:focus {
+    outline: auto 1px;
+  }
+  &-checked {
+    border-top: 1px solid #07ace8;
+    border-bottom: 1px solid #07ace8;
+    border-right: 1px solid #07ace8;
+    padding-left: 4px;
+    padding-right: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    background: #84cc25;
+    color: #f3f4f4;
+  }
+}
+.hall-row {
+  display: flex;
+  margin-bottom: 12px;
+}
+.row {
+  user-select: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  @include lg {
+    padding: 0;
+  }
+  @include sm {
+    transform: scale(1);
+  }
+  @include xs {
+    transform: scale(.7);
+  }
+  &__second {
+    padding: 0;
+    user-select: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    @include sm {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}
+
+.main__wrp_ticket {
+  @include xl {
+    width: 100%;
+  }
+  & .main__price_range {
+    @include xl {
+      width: 100%;
+    }
+  }
+  & .main__location {
+    @include lg {
+      width: 100%;
+    }
+  }
+  & .main__place {
+    width: 100%;
+  }
+  & .main__total {
+    @include lg {
+      width: 100%;
+    }
+  }
+}
+.w-100 {
+  width: 100%;
+}
+.hall-2-left-side {
+  transform: rotate(25deg) scale(.7);
+  @include sm {
+    transform: rotate(0deg);
+  }
+  & .row {
+    transform: scale(1);
+  }
+}
+.hall-2-right-side {
+  transform: rotate(-25deg) scale(.7);
+  @include sm {
+    transform: rotate(0deg);
+  }
+  & .row {
+    transform: scale(1);
+  }
+}
+.hall-2-center {
+  transform: scale(.7);
+  @include sm {
+    transform: rotate(0deg);
+    padding: 20px 0;
+  }
+  @include xs {
+    transform: rotate(0deg) scale(.9);
+  }
+  & .row {
+    transform: scale(1);
+  }
+}
+.justify-content-center {
+  justify-content: center;
+}
+.hall-2-row {
+  display: -webkit-flex;
+  display: flex;
+  align-self: start;
+  margin-bottom: 2px;
+}
+.hall-2-place {
+  display: inline-block;
+  border-top: 1px solid #07ace8;
+  border-bottom: 1px solid #07ace8;
+  border-right: 1px solid #07ace8;
+  color: #07ace8;
+  font-size: 9px;
+  padding: 1px;
+  line-height: 10px;
+  cursor: pointer;
+  min-width: 11px;
+  text-align: center;
+  font-family: FuturaFuturis,sans-serif;
+  &:first-child {
+    border-left: 1px solid #07ace8;
+  }
+  &:hover {
+    background: $blue;
+    color: $white;
+  }
+  &:focus {
+    outline: auto 1px;
+  }
+}
+.col-3 {
+  flex: 0 0 25%;
+  max-width: 25%;
+  @include sm {
+    max-width: none;
+  }
+}
+.col-6 {
+  flex: 0 0 50%;
+  max-width: 50%;
+  @include sm {
+    max-width: none;
+  }
+}
+.carousel .control-next.control-arrow:before {
+  border-left: 8px solid #000!important;
+  transform: scale(1.4);
+}
+.carousel .control-prev.control-arrow:before {
+  border-right: 8px solid #000!important;
+  transform: scale(1.4);
+}
+.main__schemes--wrp {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  @include sm {
+    width: 100%;
+  }
+}

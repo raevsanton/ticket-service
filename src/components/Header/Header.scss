@@ -1,0 +1,163 @@
+header {
+  display: flex;
+  position: relative;
+  height: 130px;
+  box-shadow: 0 6.7px 5.3px rgba(0, 0, 0, 0.01);
+  @include md {
+    & .container {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+.header {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  &__menu {
+    cursor: pointer;
+    transition: all .1s ease;
+    &:hover {
+      opacity: .7;
+      transition: all .1s ease;
+    }
+  }
+  &__logo {
+    @include md {
+      display: flex;
+      margin-right: auto;
+      margin-left: auto;
+      padding-bottom: 20px;
+    }
+  }
+  &__gradient {
+    padding-right: 15px;
+    background: linear-gradient(90deg, #3575b8 0%, #ff1632 100%);
+    @include md {
+      padding-right: 0;
+    }
+    &--back {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: -1;
+      background: rgb(53,117,184);
+      background: linear-gradient(90deg, rgba(53,117,184,1) 0%, rgba(53,117,184,1) 62%, rgba(255,255,255,1) 62%, rgba(255,255,255,1) 100%);
+      @include md {
+        display: none;
+      }
+    }
+  }
+  &__wrapper {
+    display: flex;
+    height: 130px;
+    flex: 1;
+    @include md {
+      height: 100px;
+    }
+  }
+  &__links {
+    display: flex;
+    padding-top: 25px;
+    font-size: 20px;
+    & a {
+      color: #868685;
+      text-transform: uppercase;
+      font-family: DINPro-Regular,sans-serif;
+      cursor: pointer;
+      transition: .5s;
+      &:not(:nth-child(1)) {
+        margin-left: 15px;
+      }
+      &:after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 6px;
+        background: #000;
+        transition: width .3s;
+      }
+      &:hover::after {
+        width: 100%;
+        transition: width .3s;
+      }
+      &:hover {
+        color: #000;
+        transition: .5s;
+      }
+    }
+  }
+  &__main {
+    display: flex;
+    align-items: center;
+    padding-left: 25px;
+    justify-content: space-between;
+    width: 100%;
+    background-color: $white;
+    &--left {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      @include sm {
+        width: 170px;
+      }
+      @include xs {
+        width: 100%;
+      }
+    }
+    &--right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      & .header__icon {
+        @include xs {
+          display: none;
+        }
+      }
+    }
+    @include sm {
+      padding-top: 40px;
+    }
+    @include md {
+      padding-top: 20px;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+  &__burger {
+    width: 25px;
+    height: 4px;
+    background: #868685;
+    border-radius: 50px;
+    margin: 4px 0;
+  }
+  &__icon {
+    & a {
+      margin-left: 10px;
+      transition: all .4s ease;
+      &:hover {
+        opacity: .4;
+        transition: all .1s ease;
+      }
+    }
+  }
+  &__menu {
+    margin-top: 8px;
+    cursor: pointer;
+  }
+  &__title p {
+    font-size: 17px;
+  }
+}
+
+.container {
+  display: flex;
+  z-index: 1;
+  @include md {
+    display: block;
+  }
+}

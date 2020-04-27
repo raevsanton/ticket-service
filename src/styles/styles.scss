@@ -1,0 +1,141 @@
+@import "variables";
+@import "fonts";
+@import "mixins";
+@import "../components/Header/Header";
+@import "../components/Main/Main";
+@import "../components/Footer/Footer";
+@import "../components/Events/Events";
+@import "../components/EventCard/EventCard";
+@import "../components/Menu/Menu";
+@import "../components/DatePicker/DatePicker";
+@import "../components/Terms/Terms";
+@import "../components/ShoppingCart/ShoppingCart";
+@import "../components/Paying/Paying";
+@import "../components/UpcomingEvent/UpcomingEvent";
+@import "../components/Success/Success";
+@import "../components/Tickets/Tickets";
+@import "../components/CountPlaces/CountPlaces";
+@import "../components/EventDescription/EventDescription";
+@import "../components/Login/Login";
+@import "../components/Registration/Registration";
+@import "../components/Halls/Halls";
+@import "../components/About/About";
+@import "../components/NotFound/NotFound";
+@import "../components/RecoveryPassword/RecoveryPassword";
+@import "../components/Preloader/Preloader";
+@import "../components/ConfirmRegistration/ConfirmRegistration";
+
+* {
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+html,
+body {
+  font-family: DINPro-Light,sans-serif;
+  font-size: 18px;
+  color: $dark-gray;
+  width: 100%;
+  height: 100%;
+  background: $white;
+}
+a {
+  color: inherit;
+}
+.container {
+  max-width: 1140px;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+h1 {
+  font-size: 36px;
+  color: $dark-gray;
+  font-family: DINPro-Black,sans-serif;
+  text-transform: uppercase;
+  display: inline-block;
+  position: relative;
+  margin-bottom: 50px;
+  &:before {
+    display: block;
+    position: absolute;
+    content: "";
+    height: 10px;
+    width: 100%;
+    background: $dark-gray;
+    bottom: -10px;
+  }
+}
+h2 {
+  font-size: 28px;
+  color: $yellow;
+  font-family: FuturaFuturis-bold,sans-serif;
+}
+h3 {
+  font-family: FuturaFuturis-bold,sans-serif;
+  font-size: 20px;
+  @include sm {
+    font-size: 20px;
+  }
+}
+h4 {
+  font-family: FuturaFuturis,sans-serif;
+  font-size: 16px;
+}
+select {
+  border: none;
+  height: 34px;
+  font-family: FuturaFuturis,sans-serif;
+  font-size: 18px;
+  color: $dark-gray;
+  outline: none;
+  background-color: #fafafa;
+  border-bottom: 1px solid $dark-gray;
+  margin-bottom: 1em;
+  transition: all .4s ease;
+  opacity: .7;
+  &:focus {
+    opacity: 1;
+    transition: all .4s ease;
+  }
+}
+option {
+  text-align:right;
+}
+button {
+  font-family: DINPro-Black,sans-serif;
+  font-size: 20px;
+  color: $white;
+  padding: 5px 60px;
+  background-color: $dark-gray;
+  cursor: pointer;
+  transition: all .4s ease;
+  border: none;
+  outline: none;
+  &:hover {
+    opacity: .8;
+    transition: all .4s ease;
+  }
+}
+input {
+  font-family: FuturaFuturis,sans-serif;
+  font-size: 18px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid $dark-gray;
+  margin-bottom: 1em;
+  outline: none;
+  background-color: #fafafa;
+  transition: all .4s ease;
+  opacity: .7;
+  &:focus {
+    opacity: 1;
+    transition: all .4s ease;
+  }
+}
+

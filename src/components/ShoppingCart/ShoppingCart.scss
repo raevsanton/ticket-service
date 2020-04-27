@@ -1,0 +1,84 @@
+.main {
+  &__shopping {
+    & p {
+      color: $red;
+      font-size: 13px;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+  }
+  &__cart {
+    border: 1px solid $dark-gray;
+    padding: 15px;
+    &--wrp {
+      display: flex;
+      align-items: baseline;
+      @include md {
+        flex-direction: column;
+      }
+    }
+    & p {
+      color: $dark-gray;
+      font-size: 17px;
+    }
+
+    & h4 {
+      color: $yellow;
+      cursor: pointer;
+      float: right;
+      margin-top: -24px;
+      @include md {
+        margin-top: 20px;
+      }
+    }
+    & form {
+      display: flex;
+      position: relative;
+      @include md {
+        flex-wrap: wrap;
+      }
+      & p {
+        font-size: 12px;
+      }
+      & label {
+        & p {
+          font-size: 12px;
+        }
+        & a {
+          color: $yellow;
+        }
+      }
+      & input {
+        margin-right: 10px;
+      }
+    }
+  }
+  &__total {
+    display: flex;
+    justify-content: space-between;
+    width: 162px;
+    margin-bottom: 15px;
+    @include sm {
+      width: 100%;
+    }
+  }
+  &__form--wrp {
+    display: flex;
+    margin-left: 20px;
+    align-items: baseline;
+    @include md {
+      margin-left: 20px;
+      margin-top: 20px;
+    }
+    @include sm {
+      margin-left: 0;
+    }
+    & label {
+      margin-left: 5px;
+    }
+  }
+}
+
+.link__btn {
+   margin: 15px;
+  }
