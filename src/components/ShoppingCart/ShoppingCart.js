@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import {MainContext} from "../Main/Main";
 
 class ShoppingCart extends Component {
+
     state = {
         checkbox: false,
         showEmptyCart: false,
@@ -20,6 +21,7 @@ class ShoppingCart extends Component {
         localStorage.setItem('shoppingCartTicketsLocaleStorage', JSON.stringify(newArray))
         this.setState({refresh: !this.state.refresh})
     };
+
 
     getSumOfTickets = (array) => {
         return Math.floor(array.reduce((sum, item) => {
@@ -54,6 +56,7 @@ class ShoppingCart extends Component {
         } else if (array.length === 0 && Object.keys(arrayLocal).length !== 0) {
             array = arrayLocal;
             names = dataLocal;
+
             return (
                 <div className="main__shopping">
                     {localStorage.getItem('isLogged') === "true" ?
@@ -61,6 +64,7 @@ class ShoppingCart extends Component {
                             <div className="main__title">
                                 <h1>Shopping cart</h1>
                             </div>
+                            <p> The tickets shown here have now been reserved for you for 10 minutes.</p>
                             <div className="main__cart">
                                 <h3 className="main__information_name"> {names.artist}
                                     | {names.eventName}
@@ -68,7 +72,7 @@ class ShoppingCart extends Component {
                                     + " " + new Date(names.eventStart).toLocaleString('en-US', {month: 'long'})
                                     + " " + new Date(names.eventStart).getFullYear()}</h3>
                                 <h4 className="main__delete" onClick={() => {
-                                    delete localStorage.shoppingCartTicketsLocaleStorage;
+                                    array.length = 0;
                                     this.setState({showEmptyCart: true})
                                 }}>Clear cart</h4>
                                 <div className="main__location">
@@ -115,6 +119,7 @@ class ShoppingCart extends Component {
                             <div className="main__title">
                                 <h1>Shopping cart</h1>
                             </div>
+                            <p> The tickets shown here have now been reserved for you for 10 minutes.</p>
                             <div className="main__cart">
                                 <h3 className="main__information_name"> {names.artist}
                                     | {names.eventName}
@@ -122,7 +127,7 @@ class ShoppingCart extends Component {
                                     + " " + new Date(names.eventStart).toLocaleString('en-US', {month: 'long'})
                                     + " " + new Date(names.eventStart).getFullYear()}</h3>
                                 <h4 className="main__delete" onClick={() => {
-                                    deleteAllTickets();
+                                    array.length = 0;
                                     this.setState({showEmptyCart: true})
                                 }}>Clear cart</h4>
                                 <div className="main__location">
@@ -137,7 +142,15 @@ class ShoppingCart extends Component {
                                 </div>
                                 <div className="main__cart--wrp">
                                     <Link to="/paying">
-                                        {this.state.checkbox ? <button>Pay</button> : <button disabled>Pay</button>}
+                                        {this.state.checkbox ?
+                                            <button onClick={() => {
+                                                delete localStorage.shoppingCartTicketsLocaleStorage;
+                                                delete localStorage.arrayDataLocaleStorage
+                                                localStorage.setItem('shoppingCartTicketsLocaleStorage', JSON.stringify(array))
+                                                localStorage.setItem('arrayDataLocaleStorage', JSON.stringify(names))
+                                            }
+                                            }>Pay</button> :
+                                            <button disabled>Pay</button>}
                                     </Link>
                                     <div className="main__form--wrp">
                                         <input required type="checkbox" id="terms" name="terms"
@@ -167,7 +180,7 @@ class ShoppingCart extends Component {
         return (
             <MainContext.Consumer>{
                 value => (
-                    this.checkEmptyCart(value.shoppingCartTickets, value.shoppingCartData, value.deleteEventFromShoppingCart, value.deleteAllTicketsFromArray)
+                    this.checkEmptyCart(value.shoppingCartTickets, value.shoppingCartData, value.deleteEventFromShoppingCart)
                 )
             }
             </MainContext.Consumer>
