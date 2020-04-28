@@ -77,7 +77,6 @@ class Main extends Component {
         if (this.state.shoppingCartTickets.length === 0) {
             let tmpSelectedTickets = [newTickets];
             localStorage.setItem('shoppingCartTicketsLocaleStorage', JSON.stringify(tmpSelectedTickets));
-
             this.setState({shoppingCartTickets: tmpSelectedTickets})
         } else {
             let tmpSelectedTickets = [...this.state.shoppingCartTickets, newTickets];
@@ -92,15 +91,14 @@ class Main extends Component {
         let before = shoppingCartTickets.slice(0, index);
         let after = shoppingCartTickets.slice(index + 1);
         let newArray = [...before, ...after];
+        localStorage.setItem('shoppingCartTicketsLocaleStorage', JSON.stringify(newArray))
         this.setState({shoppingCartTickets: newArray});
     };
 
     deleteAllTicketsFromArray = () => {
-        let tmp1 = [];
-        let tmp2 = [];
-        this.setState({shoppingCartTickets: tmp1, shoppingCartData: tmp2});
+        this.setState({shoppingCartTickets: [], shoppingCartData: []})
         delete localStorage.shoppingCartTicketsLocaleStorage;
-        delete localStorage.arrayDataLocaleStorage;
+        delete localStorage.arrayDataLocaleStorage
     };
 
     render() {

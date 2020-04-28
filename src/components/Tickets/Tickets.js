@@ -107,6 +107,7 @@ class Tickets extends Component {
                                                 :
                                                 <button onClick={() => {
                                                     value.addDataEvent(event);
+                                                    localStorage.setItem('arrayDataLocaleStorage', JSON.stringify(event))
                                                 }}>To the cart
                                                 </button>
                                             }
