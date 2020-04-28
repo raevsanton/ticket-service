@@ -10,6 +10,7 @@ import Preloader from "../Preloader/Preloader";
 let ticketService = new TicketService();
 
 class Tickets extends Component {
+
     state = {
         item: null,
         event: [],
@@ -72,44 +73,49 @@ class Tickets extends Component {
             <KleinerSaal price={event}/>;
         let priceRange = loading ? null : this.state.priceList;
         let mainName = loading ? null : `${artist} | ${eventName} | ${day} ${month} ${year}`;
-        return (
-            <MainContext.Consumer>{
-                value => (
-                        <div className="main__tickets">
-                            <div className="main__title">
-                                <h1>Tickets</h1>
-                            </div>
-                            <h3 className="main__information_name">{mainName}</h3>
-                            {loading ? <Preloader/> :
-                            <div className="main__ticket--wrp">
-                                {hall}
-                                <div className="main__wrp_ticket">
-                                    <div className="main__price_range">
-                                        <h3>Price range:</h3>
-                                        {priceRange}
-                                    </div>
-                                    <div className="main__location">
-                                        <p>Row</p>
-                                        <p>Place</p>
-                                        <div/>
-                                    </div>
-                                    {this.countPlaces(value.shoppingCartTickets, value.deleteEventFromShoppingCart)}
-                                    <div className="main__total">
-                                        <h3 className="main__count">{value.shoppingCartTickets.length} tickets</h3>
-                                        <h3>€ {this.getSumOfTickets(value.shoppingCartTickets)}</h3>
-                                    </div>
-                                    <Link to={'/shopping-cart'}>
-                                        <button onClick={() => {
-                                            value.addDataEvent(event);
-                                            localStorage.setItem('arrayDataLocaleStorage', JSON.stringify(event))
-                                        }}>To the cart
-                                        </button>
-                                    </Link>
+        localStorage.setItem('arrayDataLocaleStorage', JSON.stringify(event));
+            return (
+                <MainContext.Consumer>{
+                    value => (
+                            <div className="main__tickets">
+                                <div className="main__title">
+                                    <h1>Tickets</h1>
                                 </div>
-                            </div>}
-                        </div>
-            )}
-        </MainContext.Consumer>
+                                <h3 className="main__information_name">{mainName}</h3>
+                                {loading ? <Preloader/> :
+                                <div className="main__ticket--wrp">
+                                    {hall}
+                                    <div className="main__wrp_ticket">
+                                        <div className="main__price_range">
+                                            <h3>Price range:</h3>
+                                            {priceRange}
+                                        </div>
+                                        <div className="main__location">
+                                            <p>Row</p>
+                                            <p>Place</p>
+                                            <div/>
+                                        </div>
+                                        {this.countPlaces(value.shoppingCartTickets, value.deleteEventFromShoppingCart)}
+                                        <div className="main__total">
+                                            <h3 className="main__count">{value.shoppingCartTickets.length} tickets</h3>
+                                            <h3>€ {this.getSumOfTickets(value.shoppingCartTickets)}</h3>
+                                        </div>
+                                        <Link to={'/shopping-cart'}>
+                                            {value.shoppingCartTickets.length === 0
+                                                ?
+                                               <button disabled>To the cart</button>
+                                                :
+                                                <button onClick={() => {
+                                                    value.addDataEvent(event);
+                                                }}>To the cart
+                                                </button>
+                                            }
+                                        </Link>
+                                    </div>
+                                </div>}
+                            </div>
+                )}
+            </MainContext.Consumer>
         );
     }
 }

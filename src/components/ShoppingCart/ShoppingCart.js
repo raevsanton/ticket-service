@@ -41,8 +41,7 @@ class ShoppingCart extends Component {
 
     checkEmptyCart = (array, names, deleteItem, deleteAllTickets) => {
         let arrayLocal = JSON.parse(localStorage.getItem('shoppingCartTicketsLocaleStorage'));
-        let dataLocal = JSON.parse(localStorage.getItem('arrayDataLocaleStorage'));
-
+        names = JSON.parse(localStorage.getItem('arrayDataLocaleStorage'));
         if ((array.length === 0 || this.state.showEmptyCart) && (arrayLocal === null || Object.keys(arrayLocal).length === 0)) {
             return (
                 <div className={"main__popup"}>
@@ -55,8 +54,6 @@ class ShoppingCart extends Component {
             )
         } else if (array.length === 0 && Object.keys(arrayLocal).length !== 0) {
             array = arrayLocal;
-            names = dataLocal;
-
             return (
                 <div className="main__shopping">
                     {localStorage.getItem('isLogged') === "true" ?
@@ -64,7 +61,6 @@ class ShoppingCart extends Component {
                             <div className="main__title">
                                 <h1>Shopping cart</h1>
                             </div>
-                            <p> The tickets shown here have now been reserved for you for 10 minutes.</p>
                             <div className="main__cart">
                                 <h3 className="main__information_name"> {names.artist}
                                     | {names.eventName}
@@ -72,7 +68,7 @@ class ShoppingCart extends Component {
                                     + " " + new Date(names.eventStart).toLocaleString('en-US', {month: 'long'})
                                     + " " + new Date(names.eventStart).getFullYear()}</h3>
                                 <h4 className="main__delete" onClick={() => {
-                                    array.length = 0;
+                                    deleteAllTickets();
                                     this.setState({showEmptyCart: true})
                                 }}>Clear cart</h4>
                                 <div className="main__location">
@@ -93,10 +89,7 @@ class ShoppingCart extends Component {
                                         <input required type="checkbox" id="terms" name="terms"
                                                onClick={() => this.setState({checkbox: !this.state.checkbox})}/>
                                         <label htmlFor="terms">
-                                            <div>* I have read the <Link to={"/terms"} className={"textForFix"}> Terms
-                                                and
-                                                Conditions</Link> and fully agree with them.
-                                            </div>
+                                            <div>* I have read the <Link to={"/terms"} className={"textForFix"}> Terms and Conditions</Link> and fully agree with them.</div>
                                         </label>
                                     </div>
                                 </div>
@@ -119,7 +112,6 @@ class ShoppingCart extends Component {
                             <div className="main__title">
                                 <h1>Shopping cart</h1>
                             </div>
-                            <p> The tickets shown here have now been reserved for you for 10 minutes.</p>
                             <div className="main__cart">
                                 <h3 className="main__information_name"> {names.artist}
                                     | {names.eventName}
@@ -127,7 +119,7 @@ class ShoppingCart extends Component {
                                     + " " + new Date(names.eventStart).toLocaleString('en-US', {month: 'long'})
                                     + " " + new Date(names.eventStart).getFullYear()}</h3>
                                 <h4 className="main__delete" onClick={() => {
-                                    array.length = 0;
+                                    deleteAllTickets();
                                     this.setState({showEmptyCart: true})
                                 }}>Clear cart</h4>
                                 <div className="main__location">
@@ -156,10 +148,7 @@ class ShoppingCart extends Component {
                                         <input required type="checkbox" id="terms" name="terms"
                                                onClick={() => this.setState({checkbox: !this.state.checkbox})}/>
                                         <label htmlFor="terms">
-                                            <div>* I have read the <Link to={"/terms"} className={"textForFix"}> Terms
-                                                and
-                                                Conditions</Link> and fully agree with them.
-                                            </div>
+                                            <div>* I have read the <Link to={"/terms"} className={"textForFix"}> Terms and Conditions</Link> and fully agree with them.</div>
                                         </label>
                                     </div>
                                 </div>
@@ -180,7 +169,7 @@ class ShoppingCart extends Component {
         return (
             <MainContext.Consumer>{
                 value => (
-                    this.checkEmptyCart(value.shoppingCartTickets, value.shoppingCartData, value.deleteEventFromShoppingCart)
+                    this.checkEmptyCart(value.shoppingCartTickets, value.shoppingCartData, value.deleteEventFromShoppingCart, value.deleteAllTicketsFromArray)
                 )
             }
             </MainContext.Consumer>

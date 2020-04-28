@@ -8,7 +8,6 @@ class CountPlaces extends Component {
         let {arrayTicket} = this.props;
         let row = arrayTicket === undefined ? null : arrayTicket.row;
         let place = arrayTicket === undefined ? null : arrayTicket.place;
-        localStorage.setItem('test', 'Vasya');
         return (
             <MainContext.Consumer>{
                 value => (

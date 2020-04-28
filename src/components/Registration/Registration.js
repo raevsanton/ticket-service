@@ -172,7 +172,7 @@ class Registration extends Component {
                         <div className={"main__colons--space"}>
                             <div className={"main__colons--right"}>
                                 <ErrorMessage name="email" component="div" className="invalid-feedback" />
-                                <Field placeholder="Email *" name="email" type="text" className={'form-control' + (errors.email && touched.email ? ' is-invalid' : '')}/>
+                                <Field placeholder="Email *" name="email" type="email" className={'form-control' + (errors.email && touched.email ? ' is-invalid' : '')}/>
                                 <ErrorMessage name="password" component="div" className="invalid-feedback" />
                                 <Field placeholder="Password *" name="password" type="password" className={'form-control' + (errors.password && touched.password ? ' is-invalid' : '')} component={ShowHidePassword} />
                                 <ErrorMessage name="confirmPassword" component="div" className="invalid-feedback" />

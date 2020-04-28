@@ -76,7 +76,7 @@ class Main extends Component {
         let newTickets = {row: row, place: place, id: id, price: price};
         if (this.state.shoppingCartTickets.length === 0) {
             let tmpSelectedTickets = [newTickets];
-            localStorage.setItem('shoppingCartTicketsLocaleStorage', tmpSelectedTickets);
+            localStorage.setItem('shoppingCartTicketsLocaleStorage', JSON.stringify(tmpSelectedTickets));
 
             this.setState({shoppingCartTickets: tmpSelectedTickets})
         } else {

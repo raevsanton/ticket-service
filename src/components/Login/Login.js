@@ -92,8 +92,7 @@ class Login extends Component {
                                 className={'form-control'}
                                 component={ShowHidePassword}>
                             </Field>
-                            <Link to={'/recovery-password/'} id={"link__remind__password"}>Forgotten
-                                password?</Link>
+                            <Link to={'/recovery-password/'} id={"link__remind__password"}>Forgotten password?</Link>
                             <button type="submit">Login</button>
                         </Form>
                     </div>
