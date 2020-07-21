@@ -152,10 +152,16 @@ class Main extends Component {
                                 <h3>Upcoming Events</h3>
                                 {this.state.loadingUpdateComponent ? <Preloader/> :
                                     <div className="main__list">
-                                        <Link
-                                            to={`/events/${urlForFistLink()}`}> {upcomingElement(this.state.upcomingEventFirst)}</Link>
-                                        <Link
-                                            to={`/events/${urlForSecondLink()}`}> {upcomingElement(this.state.upcomingEventSecond)}</Link>
+                                        {this.state.upcomingEventFirst === undefined 
+                                        ?   null
+                                        :   <Link to={`/events/${urlForFistLink()}`}> 
+                                                {upcomingElement(this.state.upcomingEventFirst)}
+                                            </Link>}
+                                        {this.state.upcomingEventSecond === undefined
+                                            ?   null 
+                                            :   <Link to={`/events/${urlForSecondLink()}`}>
+                                                    {upcomingElement(this.state.upcomingEventSecond)}
+                                                </Link>}
                                     </div>
                                 }
                             </div>
